@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自己紹介 - Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #000;
+            background: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding: 0;
+        }
+
+        .header {
+            width: 100%;
+            background: #fff;
+            border-bottom: 1px solid #000;
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.2em;
+            font-weight: 300;
+        }
+
+        .header-url {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .main-content {
+            padding: 20px 0 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .footer {
+            width: 100%;
+            background: #fff;
+            border-top: 1px solid #000;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .container {
+            background: #fff;
+            padding: 40px;
+            border: 1px solid #000;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: block;
+        }
+
+        h1 {
+            color: #000;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            color: #000;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
+
+        .intro {
+            margin-bottom: 30px;
+            font-size: 1em;
+            line-height: 1.8;
+            color: #000;
+        }
+
+        .intro p {
+            margin-bottom: 15px;
+        }
+
+        .intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .intro-expandable {
+            display: none;
+        }
+
+        .intro-expandable.expanded {
+            display: block;
+        }
+
+        .intro-toggle {
+            color: #666;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 10px;
+            text-decoration: underline;
+            user-select: none;
+        }
+
+        .intro-toggle:hover {
+            color: #000;
+        }
+
+        .skills {
+            margin: 30px 0;
+        }
+
+        .skills h3 {
+            color: #000;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: #fff;
+            color: #000;
+            padding: 8px 16px;
+            border: 1px solid #000;
+            font-size: 0.9em;
+        }
+
+        .contact {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #000;
+        }
+
+        .contact h3 {
+            color: #000;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            color: #000;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid #000;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        .domains {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #000;
+        }
+
+        .domains h3 {
+            color: #000;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .domain-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .domain-item {
+            background: #fff;
+            color: #000;
+            padding: 8px 16px;
+            border: 1px solid #000;
+            font-size: 0.9em;
+            font-family: monospace;
+        }
+
+        .gaming-container {
+            margin-top: 0;
+        }
+
+        .gaming-info,
+        .gaming-ids,
+        .gaming-profiles,
+        .favorite-people,
+        .favorite-musicians,
+        .favorite-subculture-music,
+        .favorite-characters,
+        .favorite-vtubers {
+            margin: 30px 0;
+        }
+
+        .gaming-info h3,
+        .gaming-ids h3,
+        .gaming-profiles h3,
+        .favorite-people h3,
+        .favorite-musicians h3,
+        .favorite-subculture-music h3,
+        .favorite-characters h3,
+        .favorite-vtubers h3 {
+            color: #000;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .profile-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .profile-item {
+            background: #fff;
+            color: #000;
+            padding: 10px 20px;
+            border: 1px solid #000;
+            font-size: 0.9em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .profile-item:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        .game-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .game-item {
+            background: #fff;
+            color: #000;
+            padding: 8px 16px;
+            border: 1px solid #000;
+            font-size: 0.9em;
+        }
+
+        .game-item small {
+            color: #666;
+            font-size: 0.8em;
+        }
+
+        .id-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .id-item {
+            background: #fff;
+            color: #000;
+            padding: 8px 16px;
+            border: 1px solid #000;
+            font-size: 0.9em;
+            font-family: monospace;
+        }
+
+        .people-list,
+        .musician-list,
+        .subculture-music-list,
+        .character-list,
+        .vtuber-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .person-item,
+        .musician-item,
+        .subculture-music-item,
+        .character-item,
+        .vtuber-item {
+            background: #fff;
+            color: #000;
+            padding: 8px 16px;
+            border: 1px solid #000;
+            font-size: 0.9em;
+        }
+
+        .person-item small,
+        .musician-item small,
+        .subculture-music-item small,
+        .character-item small,
+        .vtuber-item small {
+            color: #666;
+            font-size: 0.8em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+                font-size: 50px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .skill-tags {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-url">sharoo.org</div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <img src="https://github.com/rabbit34x.png" alt="Profile" class="profile-image">
+
+            <h1>sharoo <small>(<a href="https://x.com/rabbit34x/"> @rabbit34x </a>)</small></h1>
+            <p class="subtitle">Kazuki Nakajima / 1996-03-01 / Male</p>
+
+            <div class="intro">
+                <p>
+                    音楽ゲーム好きのエンジニア。IoT関係のお仕事が多めです。
+                    sharooは`しゃるー`か`しゃろー`と呼んでください。
+                </p>
+                <div class="intro-expandable" id="intro-details">
+                    <p>
+                        子どもの頃からゲーム大好き少年でしたが、幼稚園の頃は体操クラブ、小中学生時代はサッカーとバレーボールを習っていたため運動も好きです。
+                    </p>
+                    <p>
+                        高校を卒業したら工場に就職して金を稼ごうと思っていたがインターンシップでライン工を3日間経験した結果、体力の無さに気づき、「あ、俺って肉体労働向いてないんだ」と感じて進学を決意しました。
+                    </p>
+                    <p>
+                        大学では情報工学を学んだ後、就活の辛さからニートになりそうだったが、地元の企業に拾われIT便利屋さんとして就職。
+                    </p>
+                    <p>
+                        シングルボードPCを用いた太陽光発電所遠隔監視システムの開発や自社Webサイトの開発、社内ネットワークの整備、現場での設置作業やメンテナンス、測量など多岐にわたる経験を積んだ後に転職。
+                    </p>
+                    <p>
+                        現在は、クラウドを活用したIoTサービスやWebアプリの開発に携わっています。
+                    </p>
+                </div>
+                <div class="intro-toggle" onclick="toggleIntro()">詳細を見る ▼</div>
+            </div>
+
+            <div class="skills">
+                <h3>スキル・興味のあること</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">Bash</span>
+                    <span class="skill-tag">Terraform</span>
+                    <span class="skill-tag">IoT</span>
+                    <span class="skill-tag">PKM</span>
+                </div>
+            </div>
+
+            <div class="contact">
+                <h3>リンク</h3>
+                <div class="contact-links">
+                    <a href="https://rabbit34.org" class="contact-link" target="_blank">Blog</a>
+                    <a href="https://github.com/rabbit34x" class="contact-link" target="_blank">GitHub</a>
+                    <a href="https://boku.tachi.ac/u/sharoo" class="profile-item" target="_blank">Tachi (sharoo)</a>
+                    <a href="https://osu.ppy.sh/users/1603179" class="profile-item" target="_blank">osu! (sharoo)</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container gaming-container">
+            <h1>And more</h1>
+
+            <div class="gaming-info">
+                <h3>好きなゲーム</h3>
+                <div class="game-list">
+                    <span class="game-item">DJMAX RESPECT V <small>(Dia/4b9200)</small>
+                    </span>
+                    <span class="game-item">beatmania IIDX <small>(SP皆伝)</small>
+                    </span>
+                    <span class="game-item">BMS <small>(SP★6)</small>
+                    </span>
+                    <span class="game-item">League of Legends <small>(Gold)</small>
+                    </span>
+                    <span class="game-item">Final Fantasy XIV <small>(6絶)</small>
+                    </span>
+                    <span class="game-item">Fantasy Earth Zero
+                    </span>
+                    <span class="game-item">東方Project
+                    </span>
+                    <span class="game-item">Celeste
+                    </span>
+                    <span class="game-item">Rabi-Ribi
+                    </span>
+                </div>
+            </div>
+
+            <div class="favorite-people">
+                <h3>好きな人物</h3>
+                <div class="people-list">
+                    <span class="person-item">釘宮理恵 <small>(声優)</small></span>
+                    <span class="person-item">南條愛乃 <small>(声優)</small></span>
+                    <span class="person-item">らいじん <small>(ストリーマー)</small></span>
+                </div>
+            </div>
+
+            <div class="favorite-musicians">
+                <h3>好きな音楽家</h3>
+                <div class="musician-list">
+                    <span class="musician-item">リーガルリリー <small>(オルタナティブロック)</small></span>
+                    <span class="musician-item">リスト <small>(ピアニスト・作曲家)</small></span>
+                    <span class="musician-item">サティ <small>(作曲家)</small></span>
+                </div>
+            </div>
+
+            <div class="favorite-subculture-music">
+                <h3>好きなサブカル系音楽</h3>
+                <div class="subculture-music-list">
+                    <span class="musician-item">765PRO ALLSTARS <small>(アイドルマスター)</small></span>
+                    <span class="subculture-music-item">ALI PROJECT <small>(ゴシック音楽)</small></span>
+                </div>
+            </div>
+
+            <div class="favorite-characters">
+                <h3>好きなキャラクター</h3>
+                <div class="character-list">
+                    <span class="character-item">水瀬伊織 <small>(アイドルマスター)</small></span>
+                    <span class="character-item">秋月律子 <small>(アイドルマスター)</small></span>
+                    <span class="character-item">真紅 <small>(ローゼンメイデン)</small></span>
+                    <span class="character-item">金糸雀 <small>(ローゼンメイデン)</small></span>
+                    <span class="character-item">八雲紫 <small>(東方Project)</small></span>
+                    <span class="character-item">蓬莱山輝夜 <small>(東方Project)</small></span>
+                </div>
+            </div>
+
+            <div class="favorite-vtubers">
+                <h3>好きなVTuber</h3>
+                <div class="vtuber-list">
+                    <span class="vtuber-item">湊あくあ <small>(ホロライブ)</small></span>
+                    <span class="vtuber-item">夢月ロア <small>(にじさんじ)</small></span>
+                    <span class="vtuber-item">이오몽 <small>(MEECHU)</small></span>
+                </div>
+            </div>
+
+            <div class="domains">
+                <h3>保有ドメイン</h3>
+                <div class="domain-list">
+                    <span class="domain-item">rabbit34.org <small>(expire: 2026-02-26)</small></span>
+                    <span class="domain-item">sharoo.org <small>(expire: 2026-09-27)</small></span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 sharoo</p>
+    </footer>
+
+    <script>
+        function toggleIntro() {
+            const details = document.getElementById('intro-details');
+            const toggle = document.querySelector('.intro-toggle');
+
+            if (details.classList.contains('expanded')) {
+                details.classList.remove('expanded');
+                toggle.textContent = '詳細を見る ▼';
+            } else {
+                details.classList.add('expanded');
+                toggle.textContent = '詳細を閉じる ▲';
+            }
+        }
+    </script>
+</body>
+
+</html>
