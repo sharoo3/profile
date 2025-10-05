@@ -118,19 +118,6 @@ h1 {
     display: block;
 }
 
-.intro-toggle {
-    color: #666;
-    cursor: pointer;
-    font-size: 0.9em;
-    margin-top: 10px;
-    text-decoration: underline;
-    user-select: none;
-}
-
-.intro-toggle:hover {
-    color: #000;
-}
-
 .skills {
     margin: 30px 0;
 }
