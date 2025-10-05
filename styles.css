@@ -143,19 +143,6 @@ h1 {
     display: block;
 }
 
-.expandable-list .game-item,
-.expandable-list .person-item,
-.expandable-list .musician-item,
-.expandable-list .character-item,
-.expandable-list .vtuber-item {
-    display: block;
-    margin-bottom: 5px;
-    padding: 6px 12px;
-    background: none;
-    border: none;
-    border-left: 2px solid #e0e0e0;
-    text-align: left;
-}
 
 .toggle-button {
     margin-top: 10px;
@@ -329,18 +316,22 @@ h1 {
 }
 
 .game-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+    text-align: left;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .game-item {
-    background: #fff;
+    display: block;
+    background: none;
     color: #000;
-    padding: 8px 16px;
-    border: 1px solid #e0e0e0;
+    padding: 6px 12px;
+    border: none;
+    border-left: 2px solid #e0e0e0;
     font-size: 0.9em;
+    margin-bottom: 5px;
+    text-align: left;
 }
 
 .game-item small {
@@ -369,10 +360,10 @@ h1 {
 .subculture-music-list,
 .character-list,
 .vtuber-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
+    text-align: left;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .person-item,
@@ -380,11 +371,15 @@ h1 {
 .subculture-music-item,
 .character-item,
 .vtuber-item {
-    background: #fff;
+    display: block;
+    background: none;
     color: #000;
-    padding: 8px 16px;
-    border: 1px solid #e0e0e0;
+    padding: 6px 12px;
+    border: none;
+    border-left: 2px solid #e0e0e0;
     font-size: 0.9em;
+    margin-bottom: 5px;
+    text-align: left;
 }
 
 .person-item small,
