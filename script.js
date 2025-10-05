@@ -22,3 +22,16 @@ function toggleList(listId, button) {
         button.textContent = '−';
     }
 }
+
+// ページ読み込み時に空の展開リストのボタンを非表示にする
+document.addEventListener('DOMContentLoaded', function() {
+    const expandableLists = document.querySelectorAll('.expandable-list');
+    expandableLists.forEach(list => {
+        if (list.children.length === 0) {
+            const button = list.nextElementSibling;
+            if (button && button.classList.contains('toggle-button')) {
+                button.style.display = 'none';
+            }
+        }
+    });
+});

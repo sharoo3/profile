@@ -162,6 +162,10 @@ h1 {
     border-radius: 4px;
 }
 
+.expandable-list:empty + .toggle-button {
+    display: none;
+}
+
 .toggle-button:hover {
     background: #e8e8e8;
     color: #000;
