@@ -117,6 +117,70 @@ h1 {
     display: block;
 }
 
+.intro-toggle {
+    margin-top: 15px;
+    color: #666;
+    font-size: 0.85em;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s ease;
+}
+
+.intro-toggle:hover {
+    color: #000;
+}
+
+.expandable-list {
+    display: none;
+    margin-top: 10px;
+    text-align: left;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.expandable-list.expanded {
+    display: block;
+}
+
+.expandable-list .game-item,
+.expandable-list .person-item,
+.expandable-list .musician-item,
+.expandable-list .character-item,
+.expandable-list .vtuber-item {
+    display: block;
+    margin-bottom: 5px;
+    padding: 6px 12px;
+    background: none;
+    border: none;
+    border-left: 2px solid #e0e0e0;
+    text-align: left;
+}
+
+.toggle-button {
+    margin-top: 10px;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 26px;
+    text-align: center;
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    color: #666;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+.toggle-button:hover {
+    background: #e8e8e8;
+    color: #000;
+    border-color: #ccc;
+}
+
 .skills {
     margin: 30px 0;
     padding-top: 20px;
@@ -137,7 +201,7 @@ h1 {
 }
 
 .skill-tag {
-    background: #f5f5f5;
+    background: #fff;
     color: #000;
     padding: 8px 16px;
     border: 1px solid #e0e0e0;
@@ -167,7 +231,7 @@ h1 {
     color: #000;
     text-decoration: none;
     padding: 10px 20px;
-    background: #f5f5f5;
+    background: #fff;
     border: 1px solid #e0e0e0;
     transition: all 0.3s ease;
 }
@@ -198,7 +262,7 @@ h1 {
 }
 
 .domain-item {
-    background: #f5f5f5;
+    background: #fff;
     color: #000;
     padding: 8px 16px;
     border: 1px solid #e0e0e0;
@@ -249,7 +313,7 @@ h1 {
 }
 
 .profile-item {
-    background: #f5f5f5;
+    background: #fff;
     color: #000;
     padding: 10px 20px;
     border: 1px solid #e0e0e0;
@@ -272,7 +336,7 @@ h1 {
 }
 
 .game-item {
-    background: #f5f5f5;
+    background: #fff;
     color: #000;
     padding: 8px 16px;
     border: 1px solid #e0e0e0;
@@ -292,7 +356,7 @@ h1 {
 }
 
 .id-item {
-    background: #f5f5f5;
+    background: #fff;
     color: #000;
     padding: 8px 16px;
     border: 1px solid #e0e0e0;
@@ -316,7 +380,7 @@ h1 {
 .subculture-music-item,
 .character-item,
 .vtuber-item {
-    background: #f5f5f5;
+    background: #fff;
     color: #000;
     padding: 8px 16px;
     border: 1px solid #e0e0e0;
