@@ -23,6 +23,33 @@ function toggleList(listId, button) {
     }
 }
 
+// サブスクリプションの合計を計算
+function calculateSubscriptionTotals() {
+    const subscriptionData = [
+        { name: 'Money Forward', monthly: 590, yearly: 7080 },
+        { name: 'Claude Code', monthly: 3000, yearly: 36000 },
+        { name: 'Audible', monthly: 1500, yearly: 18000 },
+        { name: 'ジム', monthly: 10670, yearly: 128040 },
+        { name: 'Final Fantasy XIV', monthly: 1628, yearly: 19536 },
+        { name: 'X Server', monthly: 330, yearly: 3960 },
+        { name: 'CloudFlare Domain (rabbit34.org)', monthly: 125, yearly: 1500 },
+        { name: 'CloudFlare Domain (sharoo.org)', monthly: 103, yearly: 1238 }
+    ];
+
+    let monthlyTotal = 0;
+    let yearlyTotal = 0;
+
+    subscriptionData.forEach(item => {
+        monthlyTotal += item.monthly;
+        yearlyTotal += item.yearly;
+    });
+
+    document.getElementById('monthly-total').textContent =
+        '¥' + monthlyTotal.toLocaleString();
+    document.getElementById('yearly-total').textContent =
+        '¥' + yearlyTotal.toLocaleString();
+}
+
 // ページ読み込み時に空の展開リストのボタンを非表示にする
 document.addEventListener('DOMContentLoaded', function() {
     const expandableLists = document.querySelectorAll('.expandable-list');
@@ -34,4 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+
+    // サブスクリプション合計を計算
+    calculateSubscriptionTotals();
 });

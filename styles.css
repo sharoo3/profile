@@ -261,6 +261,107 @@ h1 {
     font-family: monospace;
 }
 
+.subscriptions {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.subscriptions h3 {
+    color: #000;
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+.subscription-summary {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f8f8;
+    border: 1px solid #e0e0e0;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+}
+
+.summary-label {
+    font-size: 0.9em;
+    color: #666;
+    font-weight: 600;
+}
+
+.summary-value {
+    font-size: 1.4em;
+    color: #000;
+    font-weight: 700;
+    font-family: monospace;
+}
+
+.subscription-category {
+    margin-top: 25px;
+}
+
+.subscription-category:first-of-type {
+    margin-top: 0;
+}
+
+.subscription-category-title {
+    font-size: 1em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+    text-align: left;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 12px;
+    border-left: 3px solid #666;
+}
+
+.subscription-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.subscription-item {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+}
+
+.service-name {
+    font-weight: 600;
+    font-size: 1em;
+    color: #000;
+}
+
+.service-cost {
+    font-size: 0.9em;
+    color: #333;
+    font-family: monospace;
+}
+
+.service-renewal {
+    font-size: 0.85em;
+    color: #666;
+}
+
 .gaming-container {
     margin-top: 0;
 }
